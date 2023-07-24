@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-resizable-columns/0.3.1/jquery.resizableColumns.css" /> -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.13.0/Sortable.min.js"></script>
+    <script> src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-resizable-columns/0.3.1/jquery.resizableColumns.css"</script>
+
+</head>
+
+<body>
+    <img src="images/600px_background_HEX-0D9E47_Black_C_filled_White.svg.png" alt="">
+    <h1>Project Review</h1>
+
+    <div class="controls">
+        <select id="sort">
+            <option value="none">Sort by...</option>
+            <option value="title">Project</option>
+            <option value="country">Country</option>
+            <option value="date">Date</option>
+            <option value="status">Status</option>
+            <!-- Add more options for other keys in your JSON data -->
+        </select>
+        <input placeholder="Search the internet..." type="text" name="text" class="input">
+
+    </div>
+    <div id="output"></div>
+    <button id="searchHighlight">Clear Highlight</button>
+    <button id="resetOrder">Reset Column Order</button>
+
+    <button id="scrollLeft">Left</button>
+    <button id="scrollRight">Right</button>
+    <!-- <div id="tableContainer" style="overflow:auto"> -->
+
+
+        <table id="table" 
+        >
+            <thead>
+                <tr id="tableHead">
+
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+        </table>
+    <!-- </div> -->
+
+    <button id="addRow">Add Row</button>
+    <button id="deleteRow">Delete Row</button>
+    <button id="scrollToTop" style="display:none;">Scroll to Top</button>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+
+</html>
