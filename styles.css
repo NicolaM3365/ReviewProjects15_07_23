@@ -7,7 +7,7 @@ body {
 .menu-nav {
     background-image: url('/images/Company_Logo.png');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 600px;
     height: 250px;
     color: #566522;
 }

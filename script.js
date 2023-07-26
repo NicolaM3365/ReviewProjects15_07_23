@@ -43,7 +43,31 @@ document.getElementById('addRow').addEventListener('click', function (e) {
     //         cell.classList.remove('highlight');
     //     });
     // }
+    // Get the container element
+var btnContainer = document.getElementById("primary-menu");
+
+// Get all buttons with class="menu-item" inside the container
+var btns = btnContainer.getElementsByClassName("menu-item");
+
+// Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
     
+    // If there's an active class
+    if (current.length > 0) { 
+      current[0].className = current[0].className.replace(" active", "");
+    }
+
+    // Add the active class to the current/clicked button
+    this.className += " active";
+  });
+}
+
+
+
+
+
     
     document.getElementById('clearHighlight').addEventListener('click', function () {
         console.log("'clearHighlight' button was clicked.");
