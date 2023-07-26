@@ -6,95 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Review</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.13.0/Sortable.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery-resizable-columns/0.3.1/jquery.resizableColumns.css"></script>
 </head>
 
 <body>
-    <!-- <header> <img src="images/Company Logo Small.png" alt=""></header> -->
-
     <div class="menu-nav">
         <ul id="primary-menu">
             <li id="menu-item-home" class="menu-item"><a href="https://lifescientific.com">Home</a></li>
-            <li id="menu-item-research-development" class="menu-item"><a href="https://lifescientific.com/research-development/">R&amp;D</a></li>
+            <li id="menu-item-research-development" class="menu-item"><a
+                    href="https://lifescientific.com/research-development/">R&amp;D</a></li>
             <li id="menu-item-news" class="menu-item"><a href="https://lifescientific.com/news/">News</a></li>
-            <li id="menu-item-products" class="menu-item"><a href="https://lifescientific.com/products/">Products</a></li>
+            <li id="menu-item-products" class="menu-item"><a href="https://lifescientific.com/products/">Products</a>
+            </li>
             <li id="menu-item-careers" class="menu-item"><a href="https://lifescientific.com/careers/">Careers</a></li>
             <li id="menu-item-contact" class="menu-item"><a href="https://lifescientific.com/contact/">Contact</a></li>
         </ul>
     </div>
 
-    <h1>Project Review</h1>
-    <input placeholder="Search our intranet..." type="text" name="text" class="input">
-    <!-- <div class="controls">
-        <select id="sort">
-            <option value="none">Sort by...</option>
-            <option value="title">Project</option>
-            <option value="country">Country</option>
-            <option value="date">Date</option>
-            <option value="status">Status</option> -->
-    <!-- Add more options for other keys in your JSON data -->
-    <!-- </select> -->
-
-    <!-- 
-        </div> -->
-    <!-- <div id="output"></div> -->
     <section id="table">
+        <h1>Project Review</h1>
+        <input placeholder="Search our intranet (coming soon)" type="text" name="text" class="input">
         <button type="button" id="clearHighlight">Clear Highlight</button>
         <button type="button" id="resetOrder">Reset Column Order</button>
-
         <button type="button" id="scrollLeft">Left</button>
         <button type="button" id="scrollRight">Right</button>
         <div id="tableContainer">
-
-
             <table id="tableCells">
                 <thead>
                     <tr id="tableHead">
-
                     </tr>
                 </thead>
                 <tbody id="tableBody">
-
                 </tbody>
             </table>
         </div>
-
         <button type="button" id="addRow">Add Row</button>
         <button type="button" id="deleteRow">Delete Row</button>
         <button type="button" id="scrollToTop" style="display:none;">Scroll to Top</button>
-
     </section>
 
-    <!-- <section>
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-
-
-                <h2>Project Details</h2>
-                <div id="modalBody">
-                    <form id="projectDetailsForm">
-                        <label for="name">Name:</label><br>
-                        <input type="text" id="name" name="name"><br>
-                        <label for="email">Email:</label><br>
-                        <input type="text" id="email" name="email"><br>
-                        <label for="submit">Submit:</label><br>
-                        <input type="text" id="submit" name="submit"><br>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-
-        <img src="/images/600px_background_HEX-0D9E47_Black_C_filled_White.svg.png" alt="Open Modal" id="openModal">
-
-    </section> -->
-
-
     <section>
+        <h1>Meeting Minutes</h1>
         <div id="modal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -121,22 +75,51 @@
                 </div>
             </div>
         </div>
-        <img src="/images/600px_background_HEX-0D9E47_Black_C_filled_White.svg.png" alt="Open Modal" id="openModal">
+        <div id="modal-button-image">
+            <img src="/images/600px_background_HEX-0D9E47_Black_C_filled_White.svg.png" alt="Open Modal" id="openModal">
+        </div>
     </section>
 
 
+    <section class="light">
+        <div class="section-header">
+            <h1>Latest Product Launches</h1>
+        </div>
 
-    <script src="script.js"></script>
-
+        <div class="news-cards-container">
+            <article class="news-card">
+                <img class="news-card__image" src="/images/TRINESTAR-UK-1L-Front_Backsmall.png" alt="">
+                <h2 class="news-card__title">Milestones</h2>
+                <p class="news-card__info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore
+                    aliquam nisi
+                    adipisci distinctio delectus repellat similique molestias excepturi veritatis ipsam, tenetur est
+                    illum
+                    quossoluta obcaecati aspernatur dolorum, repudiandae consequuntur!</p>
+                <a href="#" class="news-card__read-more-button">Read More</a>
+            </article>
+            <article class="news-card">
+                <img class="news-card__image" src="images/LAMBDASTAR-UK-1L-Front-Back@05x-1536x1536small.png" alt="">
+                <h2 class="news-card__title">Milestones</h2>
+                <p class="news-card__info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore
+                    aliquam nisi
+                    adipisci distinctio delectus repellat similique molestias excepturi veritatis ipsam, tenetur est
+                    illum
+                    quossoluta obcaecati aspernatur dolorum, repudiandae consequuntur!</p>
+                <a href="#" class="news-card__read-more-button">Read More</a>
+            </article>
+            <article class="news-card">
+                <img class="news-card__image" src="/images/CINTAC-UK-3kg-Front-Backsmall.png" alt="">
+                <h2 class="news-card__title">Milestones</h2>
+                <p class="news-card__info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore
+                    aliquam nisi
+                    adipisci distinctio delectus repellat similique molestias excepturi veritatis ipsam, tenetur est
+                    illum
+                    quossoluta obcaecati aspernatur dolorum, repudiandae consequuntur!</p>
+                <a href="#" class="news-card__read-more-button">Read More</a>
+            </article>
+        </div>
+    </section>
 </body>
 
-
-
-<section>
-    <img src="/images/AZOXYSTAR-UK-5L-Front-Back-small.png" alt="">
-    <img src="/images/LAMBDASTAR-UK-1L-Front-Back@05x-1536x1536small.png" alt="">
-    <img src="images/TRINESTAR-UK-1L-Front_Backsmall.png" alt="">
-    <img src="/images/CINTAC-UK-3kg-Front-Backsmall.png" alt="">
-</section>
-
 </html>
+<script src="script.js"></script>

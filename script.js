@@ -16,34 +16,12 @@ fetch('library.json')
         displayResults(data, fieldOrder);
     });
 
-// document.getElementById('search').addEventListener('input', function (e) {
-//     let searchValue = e.target.value.toLowerCase();
-//     applyFilters(searchValue);
-// });
-
 document.getElementById('addRow').addEventListener('click', function (e) {
     addRow();
-    
+
 });
 
-
-// document.getElementById('clearHighlight').addEventListener('click', function (e) {
-//     isHighlightSearchActive = !isHighlightSearchActive;
-//     displayResults(data, fieldOrder);
-//     });
-
-
-// document.getElementById('clearHighlight').addEventListener('click', function (e) {
-//     clearHighlights();
-// });
-
-// function clearHighlights() {
-//     let highlightedCells = document.querySelectorAll('.highlight');
-//     highlightedCells.forEach(cell => {
-    //         cell.classList.remove('highlight');
-    //     });
-    // }
-    // Get the container element
+// Get the container element
 var btnContainer = document.getElementById("primary-menu");
 
 // Get all buttons with class="menu-item" inside the container
@@ -51,33 +29,29 @@ var btns = btnContainer.getElementsByClassName("menu-item");
 
 // Loop through the buttons and add the active class to the current/clicked button
 for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    
-    // If there's an active class
-    if (current.length > 0) { 
-      current[0].className = current[0].className.replace(" active", "");
-    }
+    btns[i].addEventListener("click", function () {
+        var current = document.getElementsByClassName("active");
 
-    // Add the active class to the current/clicked button
-    this.className += " active";
-  });
+        // If there's an active class
+        if (current.length > 0) {
+            current[0].className = current[0].className.replace(" active", "");
+        }
+
+        // Add the active class to the current/clicked button
+        this.className += " active";
+    });
 }
 
 
+document.getElementById('clearHighlight').addEventListener('click', function () {
+    console.log("'clearHighlight' button was clicked.");
+    clearHighlights();
+});
 
-
-
-    
-    document.getElementById('clearHighlight').addEventListener('click', function () {
-        console.log("'clearHighlight' button was clicked.");
-        clearHighlights();
-    });
-
-    function clearHighlights() {
-        let highlightedCells = document.querySelectorAll('td.highlight');
-        highlightedCells.forEach(cell => {
-            cell.classList.remove('highlight');
+function clearHighlights() {
+    let highlightedCells = document.querySelectorAll('td.highlight');
+    highlightedCells.forEach(cell => {
+        cell.classList.remove('highlight');
     });
 }
 
@@ -100,24 +74,13 @@ function resetColumnOrder() {
     displayResults(data, fieldOrder);
     populateFieldOptions(fieldOrder);
 }
-document.getElementById('scrollLeft').addEventListener('click', function() {
-  document.getElementById('tableContainer').scrollBy(-100, 0);
+document.getElementById('scrollLeft').addEventListener('click', function () {
+    document.getElementById('tableContainer').scrollBy(-100, 0);
 });
 
-document.getElementById('scrollRight').addEventListener('click', function() {
-  document.getElementById('tableContainer').scrollBy(100, 0);
+document.getElementById('scrollRight').addEventListener('click', function () {
+    document.getElementById('tableContainer').scrollBy(100, 0);
 });
-
-
-
-// document.getElementById("sort").style.color = "green";
-// document.getElementById("sort").style.fontFamily = "Arial";
-// document.getElementById("sort").style.fontSize = "larger";
-
-// function colorElementRed(id) {
-//     var el = document.getElementById(id);
-//     el.style.color = "red";
-// }
 
 
 function populateFieldOptions(fields) {
@@ -136,7 +99,7 @@ function populateFieldOptions(fields) {
         let filterInput = document.createElement('input');
         filterInput.type = 'text';
         filterInput.placeholder = 'Search...';
-        filterInput.addEventListener('input', function(e) {
+        filterInput.addEventListener('input', function (e) {
             let searchValue = e.target.value.toLowerCase();
             let field = this.parentNode.getAttribute('data-field');
             filters[field] = searchValue;
@@ -146,7 +109,7 @@ function populateFieldOptions(fields) {
     });
 
 
-    
+
     // Add remove button column header
     let removeColumnHeader = document.createElement('th');
     removeColumnHeader.textContent = 'Remove';
@@ -185,10 +148,10 @@ function addRow() {
         td.style.width = '175px';
         cell.textContent = '';
         cell.contentEditable = 'true';
-        cell.addEventListener('input', function() {
+        cell.addEventListener('input', function () {
             cell.classList.add('highlight');
         });
-        cell.addEventListener('click', function() {
+        cell.addEventListener('click', function () {
             cell.classList.remove('highlight');
         });
         row.appendChild(cell);
@@ -198,7 +161,7 @@ function addRow() {
     let removeCell = document.createElement('td');
     let removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
-    removeButton.addEventListener('click', function() {
+    removeButton.addEventListener('click', function () {
         if (row.classList.contains('strikethrough')) {
             row.classList.remove('strikethrough');
             removeButton.textContent = 'Remove';
@@ -212,42 +175,6 @@ function addRow() {
     tableBody.appendChild(row);
 }
 
-// function displayResults(data, fields) {
-//     let tableBody = document.getElementById('tableBody');
-//     tableBody.innerHTML = '';
-//     data.forEach(item => {
-//         let row = document.createElement('tr');
-//         fields.forEach(field => {
-//             let cell = document.createElement('td');
-//             cell.textContent = item[field] || '';
-//             cell.contentEditable = 'true';
-//             cell.addEventListener('input', function() {
-//                 cell.classList.add('highlight');
-//             });
-//             cell.addEventListener('click', function() {
-//                 cell.classList.remove('highlight');
-//             });
-//             row.appendChild(cell);
-//         });
-
-//         // Add remove button cell
-//         let removeCell = document.createElement('td');
-//         let removeButton = document.createElement('button');
-//         removeButton.textContent = 'Remove';
-//         removeButton.addEventListener('click', function() {
-//             if (row.classList.contains('strikethrough')) {
-//                 row.classList.remove('strikethrough');
-//                 removeButton.textContent = 'Remove';
-//             } else {
-//                 row.classList.add('strikethrough');
-//                 removeButton.textContent = 'Undo';
-//             }
-//         });
-//         removeCell.appendChild(removeButton);
-//         row.appendChild(removeCell);
-//         tableBody.appendChild(row);
-//     });
-// }
 
 function displayResults(data, fields) {
     let tableBody = document.getElementById('tableBody');
@@ -258,8 +185,9 @@ function displayResults(data, fields) {
             let cellText = item[field] || '';
             let cell = document.createElement('td');
             if (field === 'Priority' && cellText === 'HIGH') {
-                cell.style.color = 'red';}  // Add this line
-            if (field === 'Priority' && cellText === 'MEDIUM') {cell.style.color = 'blue'; }
+                cell.style.color = 'red';
+            }  // Add this line
+            if (field === 'Priority' && cellText === 'MEDIUM') { cell.style.color = 'blue'; }
             cell.textContent = cellText;
             cell.title = String(cellText); // Ensure it's a string
             cell.contentEditable = 'true';
@@ -328,31 +256,33 @@ var span = document.getElementsByClassName("close")[0];
 
 
 // When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
+btn.onclick = function () {
+    modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+span.onclick = function () {
+    modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 
 
-window.onload = function() {
+window.onload = function () {
     let form = document.getElementById('meetingMinutesForm');
 
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', function (event) {
         if (!form.checkValidity()) {
             event.preventDefault();
             event.stopPropagation();
         }
         form.classList.add('was-validated');
     }, false);
-}
+};
+
+

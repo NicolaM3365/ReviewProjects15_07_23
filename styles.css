@@ -8,22 +8,23 @@ body {
     background-image: url('/images/Company_Logo.png');
     background-repeat: no-repeat;
     background-size: 600px;
-    height: 250px;
+    height: 200px;
     color: #566522;
+
 }
 
 
 /* Default color for all links in the menu */
 #primary-menu li a {
     color: #566522;
-    /* Change this to your default color */
-    text-decoration: underline;
+    text-decoration: none;
     /* Remove underline from link */
 }
 
 /* Different color for active link in the menu */
 #primary-menu li.active a {
     color: #d5d110;
+    text-decoration: underline;
     /* Change this to your active link color */
 }
 
@@ -51,6 +52,38 @@ h1 {
     margin-bottom: 30px;
 }
 
+@media screen and (max-width: 600px) {
+    .menu-nav {
+        background-size: contain;
+        height: 200px;
+        padding: 20px;
+        position: sticky;
+        
+    }
+
+    #primary-menu li a,
+    #primary-menu li.active a {
+        font-size: 16px;
+    }
+
+    ul {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0;
+    }
+
+    li {
+        margin-left: 0;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+}
+
 .input {
     width: 100%;
     max-width: 220px;
@@ -75,24 +108,14 @@ h1 {
 .input:focus {
     border: 2px solid grey;
 }
-
-/* 
-#tableHead {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-
-} */
-
-#table {
-    width: 100vw;
-    border-collapse: collapse;
-    /* line-height: 0px; */
+#tableContainer {
+    overflow-y: auto;
+    height: 500px; /* adjust as needed */
 }
 
-#tableContainer {
-    overflow: auto;
+#table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
 #table th,
@@ -100,12 +123,12 @@ h1 {
     border: 1px solid #ddd;
     padding: 12px;
     transition: background-color .3s ease;
-    cursor: drag;
+    cursor: move;
 }
 
 #table td {
     font-size: small;
-    position: relative;
+    /* position: sticky; */
     padding-left: 30px;
     padding-right: 30px;
     text-align: left;
@@ -115,9 +138,7 @@ h1 {
     text-overflow: ellipsis;
     max-width: 200px;
     transition: max-width .3s ease;
-
 }
-
 
 #table tr:nth-child(even) {
     background-color: #f2f2f2;
@@ -129,95 +150,18 @@ h1 {
 
 #table tr {
     transition: background-color .3s ease;
-    cursor: default
+    cursor: default;
 }
 
-/* 
-#table th {
-    padding-top: 14px;
-    padding-bottom: 14px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
-    position: sticky;
-} */
-
-
-#table th {
+#tableHead {
     text-align: left;
     font-weight: lighter;
     background-color: #566522;
-    ;
     color: white;
     position: sticky;
     top: 0;
-
-    /* Increase z-index if table header is not appearing on top */
 }
 
-/* 
-#table {
-    max-height: 500px;
-    overflow-y: auto;
-    display: block;
-} */
-
-
-#table {
-    width: 100%;
-    height: 300px;
-    overflow: auto;
-}
-
-/*   
-.dropdown {
-    display: inline-block;
-    position: relative;
-}
-
-.dropdown-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: white;
-    font-size: 14px;
-    transition: color .3s ease;
-}
-
-.dropdown-button i {
-    margin-right: 5px;
-}
-
-.dropdown-button:hover {
-    color: #ddd;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    min-width: 160px;
-    padding: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    top: 100%;
-    left: 0;
-    border-radius: 4px;
-}
-
-.dropdown-content label {
-    display: block;
-    margin-bottom: 4px;
-    font-weight: bold;
-} */
-/* 
-.dropdown-content input {
-    width: 100%;
-    padding: 6px 12px;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-    border-radius: 4px;
-} */
 
 .show {
     display: block;
@@ -278,7 +222,10 @@ h1 {
     background-color: #d5d110;
 }
 
-
+#modal-button-image {
+    display: flex;
+    justify-content: center;
+}
 
 .modal {
     display: none;
@@ -305,40 +252,18 @@ h1 {
 }
 
 
-/* 
-#close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-#close:hover,
-#close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-} */
-
-
+/* The Modal Close Button */
 .close {
     color: #aaa;
-    /* color of the 'x' */
     float: right;
-    /* positions the 'x' to the right */
     font-size: 28px;
-    /* size of the 'x' */
     font-weight: bold;
-    /* make the 'x' bold */
     cursor: default;
-    /* changes the cursor to the default arrow cursor */
 }
 
 .close:hover {
     color: black;
-    /* color of the 'x' when hovered over */
     text-decoration: none;
-    /* removes any text decoration when hovered over */
 }
 
 .modal-content {
@@ -359,3 +284,92 @@ h1 {
     min-width: 600px;
 
 }
+
+/* News Cards */
+
+.gallery-container-section-head {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+  }
+  
+  .news-cards-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 3rem;
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  /* @media (max-width:1100px) {
+    .news-cards-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width:800px) {
+    .news-cards-container {
+      grid-template-columns: auto;
+    }
+  } */
+  
+  .news-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #566522;
+    color: #d5d110;
+    padding: 2em 2em;
+    border-radius: .4rem;
+    box-shadow: 0px 2px 16px 1px rgba(0, 0, 0, .25), 0px 2px 2px 1px rgba(0, 0, 0, .25);
+  }
+  
+  .news-card__image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    object-fit: cover;
+    margin-bottom: 2rem;
+  
+  }
+  
+  .news-card__title {
+    margin: 0 0 1rem 0;
+  }
+  
+  /* .news-card__seperator {
+    color: #e4fde1ff;
+    width: 60%;
+  } */
+  
+  .news-card__info {
+    color: rgb(176, 194, 174);
+    margin-bottom: 4rem;
+    max-height: 14ch;
+    overflow: hidden;
+  }
+  
+  .news-card__info::after {
+    content: "...";
+  }
+  
+  .news-card__read-more-button {
+    width: fit-content;
+    padding: 1em .8em;
+    border: 1px solid #e4fde1ff;
+    display: block;
+    margin-top: auto;
+    transition: .3s;
+    color: #d5d110;
+  }
+  
+  .news-card__read-more-button:hover {
+    border: 1px solid black;
+    background: #e4fde1ff;
+    color: #566522;
+    transition: .3s;
+  }
+  
