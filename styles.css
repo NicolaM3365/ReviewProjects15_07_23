@@ -4,18 +4,52 @@ body {
     background-color: #f4f4f4;
 }
 
+.menu-nav {
+    background-image: url('/images/Company_Logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 250px;
+    color: #566522;
+}
+
+
+/* Default color for all links in the menu */
+#primary-menu li a {
+    color: #566522;
+    /* Change this to your default color */
+    text-decoration: underline;
+    /* Remove underline from link */
+}
+
+/* Different color for active link in the menu */
+#primary-menu li.active a {
+    color: #d5d110;
+    /* Change this to your active link color */
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    float: right;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+li {
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 20px;
+
+
+}
+
 h1 {
     text-align: center;
-    color: #444;
+    color: #d5d110;
     font-size: 2.5em;
     margin-bottom: 30px;
 }
- 
-.controls {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-} 
 
 .input {
     width: 100%;
@@ -41,6 +75,7 @@ h1 {
 .input:focus {
     border: 2px solid grey;
 }
+
 /* 
 #tableHead {
     display: flex;
@@ -56,11 +91,16 @@ h1 {
     /* line-height: 0px; */
 }
 
+#tableContainer {
+    overflow: auto;
+}
+
 #table th,
 #table td {
     border: 1px solid #ddd;
     padding: 12px;
     transition: background-color .3s ease;
+    cursor: drag;
 }
 
 #table td {
@@ -75,7 +115,7 @@ h1 {
     text-overflow: ellipsis;
     max-width: 200px;
     transition: max-width .3s ease;
-                       
+
 }
 
 
@@ -86,6 +126,12 @@ h1 {
 #table tr:hover {
     background-color: #ddd;
 }
+
+#table tr {
+    transition: background-color .3s ease;
+    cursor: default
+}
+
 /* 
 #table th {
     padding-top: 14px;
@@ -100,20 +146,30 @@ h1 {
 #table th {
     text-align: left;
     font-weight: lighter;
-    background-color: #4CAF50;
+    background-color: #566522;
+    ;
     color: white;
     position: sticky;
     top: 0;
-    z-index: 10;
+
     /* Increase z-index if table header is not appearing on top */
 }
 
+/* 
 #table {
     max-height: 500px;
     overflow-y: auto;
     display: block;
+} */
+
+
+#table {
+    width: 100%;
+    height: 300px;
+    overflow: auto;
 }
 
+/*   
 .dropdown {
     display: inline-block;
     position: relative;
@@ -153,22 +209,22 @@ h1 {
     display: block;
     margin-bottom: 4px;
     font-weight: bold;
-}
-
+} */
+/* 
 .dropdown-content input {
     width: 100%;
     padding: 6px 12px;
     border: 1px solid #ddd;
     box-sizing: border-box;
     border-radius: 4px;
-}
+} */
 
 .show {
     display: block;
 }
 
 .highlight {
-    background-color: yellow !important;
+    background-color: #d5d110 !important;
     transition: background-color .3s ease;
 }
 
@@ -179,12 +235,15 @@ h1 {
 
 
 
+
+
 #addRow,
 #deleteRow,
 #scrollToTop,
-#searchHighlight,
-#resetOrder
- {
+#clearHighlight,
+#resetOrder,
+#scrollLeft,
+#scrollRight {
     padding: 10px;
     font-size: 1em;
     border: none;
@@ -201,16 +260,102 @@ h1 {
 #addRow,
 #deleteRow,
 #scrollToTop,
-#searchHighlight,
-#resetOrder {
-    background-color: #4CAF50;
+#clearHighlight,
+#resetOrder,
+#scrollLeft,
+#scrollRight {
+    background-color: #566522;
+    ;
     color: #fff;
 }
 
 #addRow:hover,
 #deleteRow:hover,
 #scrollToTop:hover,
-#searchHighlight:hover
-#resetOrder:hover {
-    background-color: #45a049;
+#clearHighlight:hover #resetOrder:hover,
+#scrollLeft:hover,
+#scrollRight:hover {
+    background-color: #d5d110;
+}
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.modal-visible {
+    display: block;
+}
+
+
+/* 
+#close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#close:hover,
+#close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+} */
+
+
+.close {
+    color: #aaa;
+    /* color of the 'x' */
+    float: right;
+    /* positions the 'x' to the right */
+    font-size: 28px;
+    /* size of the 'x' */
+    font-weight: bold;
+    /* make the 'x' bold */
+    cursor: default;
+    /* changes the cursor to the default arrow cursor */
+}
+
+.close:hover {
+    color: black;
+    /* color of the 'x' when hovered over */
+    text-decoration: none;
+    /* removes any text decoration when hovered over */
+}
+
+.modal-content {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    color: #566522;
+    font-weight: 200;
+
+}
+
+#meetingMinutesForm textarea {
+    min-height: 100px;
+    box-sizing: border-box;
+    resize: vertical;
+    min-width: 600px;
+
 }
