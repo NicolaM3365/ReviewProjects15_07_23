@@ -3,7 +3,7 @@ let filters = {};
 let isHighlightSearchActive = false;
 let fieldOrder = [];
 
-fetch('library.json')
+fetch('libraryanom.json')
     .then(response => response.json())
     .then(json => {
         data = json;
