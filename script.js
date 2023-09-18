@@ -193,7 +193,7 @@ function applyFilters() {
         return true;
     });
     displayResults(filteredData, fieldOrder);
-} RESE
+}
 
 function addRow() {
     let tableBody = document.getElementById('tableBody');
