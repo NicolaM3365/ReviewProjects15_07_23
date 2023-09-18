@@ -126,6 +126,8 @@ h1 {
     cursor: move;
 }
 
+
+
 #table td {
     font-size: small;
     /* position: sticky; */
@@ -222,6 +224,15 @@ h1 {
     background-color: #d5d110;
 }
 
+
+#scrollToTop {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: none;  /* Initially hidden */
+  }
+
+  
 #modal-button-image {
     display: flex;
     justify-content: center;

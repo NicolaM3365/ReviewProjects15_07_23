@@ -27,20 +27,53 @@ var btnContainer = document.getElementById("primary-menu");
 // Get all buttons with class="menu-item" inside the container
 var btns = btnContainer.getElementsByClassName("menu-item");
 
+// // Loop through the buttons and add the active class to the current/clicked button
+// for (var i = 0; i < btns.length; i++) {
+//     btns[i].addEventListener("click", function () {
+//         var current = document.getElementsByClassName("active");
+
+//         // If there's an active class
+//         if (current.length > 0) {
+//             current[0].className = current[0].className.replace(" active", "");
+//         }
+
+//         // Add the active class to the current/clicked button
+//         this.className += " active";
+//     });
+// }
+
+
+
 // Loop through the buttons and add the active class to the current/clicked button
 for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function () {
-        var current = document.getElementsByClassName("active");
+        var current = document.querySelector(".active"); // Find the current active element
 
         // If there's an active class
-        if (current.length > 0) {
-            current[0].className = current[0].className.replace(" active", "");
+        if (current) {
+            current.classList.remove("active"); // Remove the active class
         }
 
         // Add the active class to the current/clicked button
-        this.className += " active";
+        this.classList.add("active");
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 document.getElementById('clearHighlight').addEventListener('click', function () {
@@ -145,7 +178,7 @@ function addRow() {
     let row = document.createElement('tr');
     for (let i = 0; i < fieldOrder.length; i++) {
         let cell = document.createElement('td');
-        td.style.width = '175px';
+        cell.style.width = '175px';
         cell.textContent = '';
         cell.contentEditable = 'true';
         cell.addEventListener('input', function () {
@@ -155,6 +188,8 @@ function addRow() {
             cell.classList.remove('highlight');
         });
         row.appendChild(cell);
+        tableBody.appendChild(row);
+
     }
 
     // Add remove button cell
@@ -198,6 +233,7 @@ function displayResults(data, fields) {
                 cell.classList.remove('highlight');
             });
             row.appendChild(cell);
+            tableBody.appendChild(row);
         });
 
         // Add remove button cell
@@ -238,10 +274,10 @@ mybutton.addEventListener('click', function () {
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 });
 
-// Position the button at the bottom right of the screen
-mybutton.style.position = "fixed";
-mybutton.style.bottom = "0";
-mybutton.style.right = "0";
+// // Position the button at the bottom right of the screen
+// mybutton.style.position = "fixed";
+// mybutton.style.bottom = "0";
+// mybutton.style.right = "0";
 
 
 
