@@ -122,9 +122,31 @@ function populateFieldOptions(fields) {
     fields.forEach(field => {
         let th = document.createElement('th');
         th.style.width = '175px';
+
+
+
+        // Create the tooltip container and text
+        let tooltip = document.createElement('span');
+        tooltip.classList.add('tooltip');
+
+
+
         let label = document.createElement('div');
         label.textContent = field;
-        th.appendChild(label);
+
+        tooltip.appendChild(label);
+
+        let tooltipText = document.createElement('span');
+        tooltipText.classList.add('tooltiptext');
+        tooltipText.textContent = "Drag to reorder this column";
+
+        // Attach tooltip and tooltip text to the th
+        tooltip.appendChild(tooltipText);
+
+        th.appendChild(tooltip);
+
+
+
         th.style.cursor = 'pointer'; // Change cursor to pointer
         th.setAttribute('data-field', field);
         tableHead.appendChild(th);
@@ -171,7 +193,7 @@ function applyFilters() {
         return true;
     });
     displayResults(filteredData, fieldOrder);
-}
+} RESE
 
 function addRow() {
     let tableBody = document.getElementById('tableBody');
@@ -190,7 +212,13 @@ function addRow() {
         row.appendChild(cell);
         tableBody.appendChild(row);
 
+        // Scroll the new row into view
+        row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
     }
+
+
+
 
     // Add remove button cell
     let removeCell = document.createElement('td');
@@ -327,4 +355,5 @@ window.onload = function () {
         form.classList.add('was-validated');
     }, false);
 };
+
 
