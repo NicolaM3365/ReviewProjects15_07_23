@@ -5,7 +5,7 @@ body {
 }
 
 .menu-nav {
-    background-image: url('/images/Company_Logo.png');
+    background-image: url('images/Company_Logo.png');
     background-repeat: no-repeat;
     background-size: 600px;
     height: 200px;
