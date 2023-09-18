@@ -280,7 +280,6 @@ mybutton.addEventListener('click', function () {
 // mybutton.style.right = "0";
 
 
-
 var modal = document.getElementById("modal");
 
 // Get the button that opens the modal
@@ -289,7 +288,8 @@ var btn = document.getElementById("openModal");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-
+// Get the submit button by its id
+var submit = document.getElementById("submit");
 
 // When the user clicks the button, open the modal 
 btn.onclick = function () {
@@ -308,17 +308,23 @@ window.onclick = function (event) {
     }
 }
 
-
 window.onload = function () {
     let form = document.getElementById('meetingMinutesForm');
 
     form.addEventListener('submit', function (event) {
         if (!form.checkValidity()) {
+            // Show an alert if the form is not valid
+            alert("All fields need to be populated before you can submit.");
+
+            // Prevent the form from submitting
             event.preventDefault();
             event.stopPropagation();
+        } else {
+            // Close the modal and redirect to index.html
+            modal.style.display = "none";
+            window.location.href = "index.html";
         }
         form.classList.add('was-validated');
     }, false);
 };
-
 
